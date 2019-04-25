@@ -330,3 +330,37 @@ void reserve()
     while(ch==1);
     getch();
 }
+
+void res()
+{
+    detail a;
+    reser b;
+    fstream f1,f2;
+    time_t t;
+    f1.open("t.txt",ios::in|ios::out|ios::binary);
+    f2.open("p.txt",ios::in|ios::out|ios::binary|ios::app);
+    int ch;
+    b.getresdet();
+    while(f1.read((char *) &a,sizeof(a)))
+    {
+        if(a.tno==b.tno)
+        {
+            if(strcmp(b.clas,f)==0)
+            {
+                if(a.c1>=b.nosr)
+
+                {
+                    amt=a.c1fare;
+                    addr=f1.tellg();
+                    ad=sizeof(a.c1);
+                    f1.seekp(addr-(7*ad));
+                    a.c1=a.c1-b.nosr;
+                    f1.write((char *) & a.c1,sizeof(a.c1));
+                    if(b.con==1)
+                    {
+                        cout<<"Concession category:MILITARY PERSONNEL\n";
+
+                        b.amc=b.nosr*((amt*50)/100);
+                    }
+
+
