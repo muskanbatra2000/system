@@ -392,4 +392,42 @@ void res()
 
                 }
 
+  }
+            else if(strcmp(b.clas,s)==0)
+            {
+                if(a.c2>=b.nosr)
+                {
+                    amt=a.c2fare;
+                    addr=f1.tellg();
+                    ad=sizeof(a.c2);
+                    f1.seekp(addr-(5*ad));
+                    a.c2=a.c2-b.nosr;
+                    f1.write((char *) & a.c2,sizeof(a.c2));
+                    if(b.con==1)
+                    {
+                        cout<<"Concession category:MILITARY PRESONNEL\n";
+                        b.amc=b.nosr*((amt*50)/100);
+                    }
+                    else if(b.con==2)
+                    {
+                        cout<<"Concession category:SENIOR CITIZEN\n";
+                        b.amc=b.nosr*((amt*60)/100);
+                    }
+                    else if(b.con==3)
+                    {
+                        cout<<"Concession category:CHILDERN BELOW FIVE\n";
+                        b.amc=0.0;
+                    }
+                    else if(b.con==4)
+                    {
+                        cout<<"You cannot get any concession\n";
+                        b.amc=b.nosr*amt;
+                    }
+                    f2.write((char *) & b,sizeof(b));
+                    b.displayresdet();
+                    cout<<"---------------------------------------\n";
+                    cout<<"--------Your ticket is reserved--------\n";
+                    cout<<"------------End of reservation---------\n";
+                }
+
 
