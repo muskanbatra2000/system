@@ -677,4 +677,54 @@ void user()
     getch();
 j:
 }
+void manage()
+{
+    int ch;
+    fstream f;
+    char c;
+    login a;
+    cout<<".........WELCOME TO THE USER MANAGEMENT MENU........\n";
+    do
+    {
+        cout<<"1.Create id data base\n2.Add details\n";
+        cout<<"3.Display details\n4.Return to the main menu\n";
+        cout<<"Enter your choice:";
+        cin>>ch;
+        cout<<endl;
+        switch(ch)
+        {
+        case 1:
+            f.open("id.txt",ios::out|ios::binary);
+            do
+            {
+                a.getid();
+                f.write((char *) & a,sizeof(a));
+                cout<<"Do you want to add one more record\n";
+                cout<<"y-Yes\nn-No\n";
+                cin>>c;
+            }
+            while(c=='y');
+            f.close();
+            break;
+        case 2:
+            f.open("id.txt",ios::in|ios::out|ios::binary|ios::app);
+            a.getid();
+            f.write((char *) & a,sizeof(a));
+            f.close();
+            break;
+        case 3:
+            f.open("id.txt",ios::in|ios::out|ios::binary);
+
+            f.seekg(0);
+            while(f.read((char *) & a,sizeof(a)))
+            {
+                a.displayid();
+            }
+            f.close();
+            break;
+        }
+    }
+    while(ch<=3);
+    getch();
+}
 
