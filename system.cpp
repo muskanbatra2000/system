@@ -363,4 +363,33 @@ void res()
                         b.amc=b.nosr*((amt*50)/100);
                     }
 
+ else if(b.con==2)
+                    {
+                        cout<<"Concession category:SENIOR CITIZEN\n";
+                        b.amc=b.nosr*((amt*60)/100);
+                    }
+                    else if(b.con==3)
+                    {
+                        cout<<"Concession category:CHILDERN BELOW FIVE\n";
+                        b.amc=0.0;
+                    }
+                    else if(b.con==4)
+                    {
+                        cout<<"You cannot get any concession\n";
+                        b.amc=b.nosr*amt;
+                    }
+                    srand((unsigned) time(&t));
+                    b.pnr=rand();
+                    f2.write((char *) & b,sizeof(b));
+                    b.displayresdet();
+                    cout<<"------------------------------------------------------\n";
+                    cout<<"--------------Your ticket is reserved-----------\n";
+                    cout<<"-----------------End of reservation menu-------\n";
+                }
+                else
+                {
+                    cout<<"**********Sorry req seats not available********\n";
+
+                }
+
 
