@@ -430,4 +430,29 @@ void res()
                     cout<<"------------End of reservation---------\n";
                 }
 
+ else
 
+
+                {
+                    cout<<"********Sorry req no of seats not available*******\n";
+                }
+            }
+            getch();
+
+            goto h;
+        }
+        else
+        {
+            flag=0;
+        }
+    }
+    if(flag==0)
+    {
+        cout<<"............Wrong train no......................\n";
+        cout<<"......Enter the train no from the data base.....\n";
+    }
+    f1.close();
+    f2.close();
+    getch();
+h:
+}
